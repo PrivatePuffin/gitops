@@ -27,9 +27,9 @@ spec:
         enabled: true
         format: json
     service:
-    spec:
-      externalTrafficPolicy: Local
-      loadBalancerIP: "${INGRESS_NGINX_LB}"
+      spec:
+        externalTrafficPolicy: Local
+        loadBalancerIP: "${INGRESS_NGINX_LB}"
     ports:
       web:
         redirectTo: websecure
