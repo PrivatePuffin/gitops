@@ -67,5 +67,4 @@ spec:
       curvePreferences:
       - CurveP521
       - CurveP384
-      # sniStrict: true
           
