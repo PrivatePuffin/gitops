@@ -6,7 +6,7 @@ metadata:
 spec:
   accessModes:
   - ReadWriteOnce
-  storageClassName: local-path
+  storageClassName: flux-zfs
   resources:
     requests:
       storage: 128Mi
