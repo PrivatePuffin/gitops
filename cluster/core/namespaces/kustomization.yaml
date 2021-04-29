@@ -6,3 +6,4 @@ resources:
 - networking.yaml
 - metrics.yaml
 - kubernetes-dashboard.yaml
+- monitoring.yaml
