@@ -7,3 +7,10 @@ resources:
 - k8s-at-home-charts.yaml
 - traefik-charts.yaml
 - kubernetes-dashboard-charts.yaml
+- dex-charts.yaml
+- elastic-charts.yaml
+- influxdata-charts.yaml
+- loki-charts.yaml
+- nextcloud-charts.yaml
+- vernemq-charts.yaml
+- prometheus-community-charts.yaml

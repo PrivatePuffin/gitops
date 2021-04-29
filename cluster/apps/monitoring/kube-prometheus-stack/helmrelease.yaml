@@ -1,0 +1,159 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: kube-prometheus-stack
+  namespace: monitoring
+spec:
+  interval: 1h
+  chart:
+    spec:
+      # renovate: registryUrl=https://prometheus-community.github.io/helm-charts
+      chart: kube-prometheus-stack
+      version: 15.2.4
+      sourceRef:
+        kind: HelmRepository
+        name: prometheus-community-charts
+        namespace: flux-system
+  values:
+    nodeExporter:
+      serviceMonitor:
+        relabelings:
+          - action: replace
+            regex: (.*)
+            replacement: $1
+            sourceLabels:
+              - __meta_kubernetes_pod_node_name
+            targetLabel: kubernetes_node
+    kubelet:
+      serviceMonitor:
+        metricRelabelings:
+          - action: replace
+            sourceLabels:
+              - node
+            targetLabel: instance
+
+    alertmanager:
+      ingress:
+        enabled: true
+        pathType: ImplementationSpecific
+        hosts:
+          - "alert-manager.${SECRET_DOMAIN}"
+        tls:
+          - hosts:
+              - "alert-manager.${SECRET_DOMAIN}"
+      alertmanagerSpec:
+        storage:
+          volumeClaimTemplate:
+            spec:
+              storageClassName: flux-zfs
+              resources:
+                requests:
+                  storage: 10Gi
+    grafana:
+      ingress:
+        enabled: true
+        hosts:
+          - "grafana.${SECRET_DOMAIN}"
+        tls:
+          - hosts:
+              - "grafana.${SECRET_DOMAIN}"
+      plugins:
+        - natel-discrete-panel
+        - pr0ps-trackmap-panel
+        - grafana-piechart-panel
+        - vonage-status-panel
+        - grafana-worldmap-panel
+        - grafana-clock-panel
+      dashboardProviders:
+        dashboardproviders.yaml:
+          apiVersion: 1
+          providers:
+            - name: "default"
+              orgId: 1
+              folder: ""
+              type: file
+              disableDeletion: false
+              editable: true
+              options:
+                path: /var/lib/grafana/dashboards/default
+            - name: "home"
+              orgId: 1
+              folder: "Home"
+              type: file
+              disableDeletion: false
+              editable: true
+              options:
+                path: /var/lib/grafana/dashboards/home
+      dashboards:
+        default:
+          # Ref: https://grafana.com/grafana/dashboards/11315
+          unifi-client-insights:
+            gnetId: 11315
+            revision: 8
+            datasource: Prometheus
+          # Ref: https://grafana.com/grafana/dashboards/11311
+          unifi-network-sites:
+            gnetId: 11311
+            revision: 4
+            datasource: Prometheus
+          # Ref: https://grafana.com/grafana/dashboards/11314
+          unifi-uap-insights:
+            gnetId: 11314
+            revision: 9
+            datasource: Prometheus
+          # Ref: https://grafana.com/grafana/dashboards/11312
+          unifi-usw-insights:
+            gnetId: 11312
+            revision: 8
+            datasource: Prometheus
+          # Ref: https://grafana.com/grafana/dashboards/11313
+          unifi-usg-insights:
+            gnetId: 11313
+            revision: 8
+            datasource: Prometheus
+      #additionalDataSources:
+      #  - name: Loki
+      #    type: loki
+      #    access: proxy
+      #    url: http://monitoring-loki:3100
+      #  - name: HomeAssistant
+      #    type: influxdb
+      #    access: proxy
+      #    url: http://influxdb:8086
+      #    database: home_assistant
+      sidecar:
+        dashboards:
+          enabled: true
+        datasources:
+          enabled: true
+    prometheus:
+      ingress:
+        enabled: true
+        pathType: ImplementationSpecific
+        hosts:
+          - "prometheus.${SECRET_DOMAIN}"
+        tls:
+          - hosts:
+              - "prometheus.${SECRET_DOMAIN}"
+      prometheusSpec:
+        image:
+          repository: quay.io/prometheus/prometheus
+          tag: v2.26.0
+        serviceMonitorNamespaceSelector: {}
+        serviceMonitorSelector: {}
+        serviceMonitorSelectorNilUsesHelmValues: false
+        storageSpec:
+          volumeClaimTemplate:
+            spec:
+              storageClassName: flux-zfs
+              accessModes: ['ReadWriteOnce']
+              resources:
+                requests:
+                  storage: 20Gi
+        resources:
+          requests:
+            cpu: 500m
+            memory: 1500Mi
+          limits:
+            memory: 3000Mi
