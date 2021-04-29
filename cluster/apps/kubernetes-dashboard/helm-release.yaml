@@ -21,6 +21,8 @@ spec:
       - --enable-insecure-login
       - --enable-skip-login
       - --disable-settings-authorizer
+    metricsScraper:
+      enabled: true
     ingress:
       enabled: true
       hosts:
