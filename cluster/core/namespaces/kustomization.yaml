@@ -5,3 +5,4 @@ resources:
 - metallb-system.yaml
 - networking.yaml
 - metrics.yaml
+- kubernetes-dashboard.yaml
