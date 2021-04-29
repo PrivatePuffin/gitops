@@ -19,6 +19,7 @@ spec:
     globalArguments:
       - "--global.checknewversion"
       - "--serverstransport.insecureskipverify=true"
+      - "--metrics.prometheus=true"
     logs:
       general:
         format: json

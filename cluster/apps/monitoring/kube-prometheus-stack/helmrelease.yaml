@@ -112,6 +112,10 @@ spec:
             gnetId: 11313
             revision: 8
             datasource: Prometheus
+          traefik-2:
+            gnetId: 11462
+            revision: 1
+            datasource: Prometheus
       #additionalDataSources:
       #  - name: Loki
       #    type: loki
