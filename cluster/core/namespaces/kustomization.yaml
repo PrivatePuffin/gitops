@@ -7,3 +7,4 @@ resources:
 - metrics.yaml
 - kubernetes-dashboard.yaml
 - monitoring.yaml
+- storage.yaml
