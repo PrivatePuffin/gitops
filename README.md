@@ -4,6 +4,14 @@ Template for deploying a single [k3s](https://k3s.io/) cluster with [k3sup](http
 
 The purpose here is to showcase how you can deploy an entire Kubernetes cluster and show it off to the world using the [GitOps](https://www.weave.works/blog/what-is-gitops-really) tool [Flux](https://toolkit.fluxcd.io/). When completed, your Git repository will be driving the state of your Kubernetes cluster. In addition with the help of the [Flux SOPS integration](https://toolkit.fluxcd.io/guides/mozilla-sops/) you'll be able to commit GPG encrypted secrets to your public repo.
 
+## Custom Notes
+
+- use ansible 2.9
+- make sure to use `ansible-galaxy install -r server/ansible/requirements.yml`
+- make sure to use `ansible-galaxy collections install -r server/ansible/requirements.yml`
+- make sure to install pip deps by using `pip3 install -r server/ansible/requirements.txt`
+- create `vault.yml` using `ansible-vault create` insert `protc1_sudo` etc.
+
 ## Overview
 
 - [Introduction](https://github.com/k8s-at-home/template-cluster-k3s#wave-introduction)
