@@ -24,7 +24,3 @@ k3s_server:
   cluster-cidr: "10.69.0.0/16"
   # Network CIDR to use for service IPs
   service-cidr: "10.96.0.0/16"
-  kubelet-arg:
-  - "feature-gates=GracefulNodeShutdown=true"
-  kube-apiserver-arg:
-  - anonymous-auth=true

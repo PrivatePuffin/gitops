@@ -6,7 +6,7 @@ The purpose here is to showcase how you can deploy an entire Kubernetes cluster 
 
 ## Custom Notes
 
-- use ansible 2.9
+- use pip ansible instead of apt-get ansible
 - make sure to use `ansible-galaxy install -p server/ansible/roles -r server/ansible/requirements.yml`
 - make sure to use `ansible-galaxy collections install -r server/ansible/requirements.yml`
 - make sure to install pip deps by using `pip3 install /etc/ansible/roles -r server/ansible/requirements.txt`
