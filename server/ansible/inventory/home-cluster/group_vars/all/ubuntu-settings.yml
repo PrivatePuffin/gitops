@@ -1,0 +1,25 @@
+---
+
+# Enable to skip apt upgrade
+skip_upgrade_packages: false
+# Enable to skip removing crufty packages
+skip_remove_packages: false
+
+# Timezone for the servers
+timezone: "Europe/Amsterdam"
+
+# # Set custom ntp servers
+# ntp_servers:
+#   primary:
+#   - "time.cloudflare.com"
+#   - "time.google.com"
+#   fallback:
+#   - "0.us.pool.ntp.org"
+#   - "1.us.pool.ntp.org"
+#   - "2.us.pool.ntp.org"
+#   - "3.us.pool.ntp.org"
+
+# Additional ssh public keys to add to the nodes
+ssh_authorized_keys:
+# workstation
+- "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC7pDCLRdYmvRhreESEwbedfFjSQI2K9IWbkYCTEZPl1GqhpoGXt7SljZYnU8NM+SGjPmXx2zlcxlgt/EbMRrddrHzTs6X5o5g7fYTx5/cF27e7ORkK7EsjuuW84AYDV0Lx1kSeF2yo9Fg+I1dOFRW2WG5ZlUyBCsleJJFbV8sCYurrdjjwDUzyqGKopFpKcBrF23j8FYggUu7Vzylre9Yh6UV26djp0YQVPLXRB6czs4peMCsePzypsFyG+m2Smc4YYwQFHC0spOEfXIbEJo9opJIDr2AfoEopgqisXp4+1q+3DnOJrDgfoNb8s7xyvp2TCGWkKBu4LEZyST+LqxNNS/dObA4q9CCosP4ctmH9rR6iYEA7fU1e6mLxW0kUnBa/NFoNVImAdhOm6XLtWIJBQa9/B6vM/3kUMPtsN/BHT82O2Fs/kGtbjGVBgWV3rx942P/emivw6XNgrxcz9yvG9N6IAGSKw+rIDS4/vITHezzm91ApR+1hRCYbZjZG/ZkmVUBRAq2I8ZhhgXDfXlvlvsRP7geErshLijycvzysad74ge87b/CY9uB4qJFalbtjUfuVqRJ8FTzvYXUzNCU1aF8OY9LvtWB0QZU6lG5s4nyog7j+i1JuIe1jhzS/iJg3eFcfiLrvKyDtjQYzX1iaJX6cG8t0oXokHmk7uheiYQ== kjeld@schouten-lebbing.nl"

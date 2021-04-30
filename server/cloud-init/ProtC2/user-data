@@ -1,0 +1,92 @@
+#cloud-config
+autoinstall:
+  version: 1
+  refresh-installer:
+    update: true
+  apt:
+    geoip: true
+    preserve_sources_list: false
+    primary:
+    - arches: [amd64, i386]
+      uri: http://archive.ubuntu.com/ubuntu
+    - arches: [default]
+      uri: http://ports.ubuntu.com/ubuntu-ports
+  identity:
+    hostname: ProtC2
+    # docker run --rm -it alpine:latest mkpasswd -m sha512 ubuntu
+    # docker run --rm -it python:alpine3.12 python3 -c 'import crypt; print(crypt.crypt("ubuntu", crypt.mksalt(crypt.METHOD_SHA512)))'
+    password: $6$xZ8azU7g$fVnTxKvgnzKnB0HXMsTvLHPuqXf6MbIN4IeGV5Qu/Eb6GtsKb7uSgfJUYY5SJR69ntdKxUuykyHZ5GpYO00oI1
+    realname: Ubuntu
+    username: ubuntu
+  keyboard:
+    layout: us
+    toggle: null
+    variant: ''
+  locale: en_US.UTF-8
+  network:
+    version: 2
+    ethernets:
+      eth0:
+        addresses:
+        - 192.168.20.82/24
+        critical: true
+        dhcp-identifier: mac
+        gateway4: 192.168.20.1
+        nameservers:
+          addresses:
+          - 192.168.20.1
+  ssh:
+    allow-pw: true
+    install-server: true
+    authorized-keys:
+    # workstation
+    - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC7pDCLRdYmvRhreESEwbedfFjSQI2K9IWbkYCTEZPl1GqhpoGXt7SljZYnU8NM+SGjPmXx2zlcxlgt/EbMRrddrHzTs6X5o5g7fYTx5/cF27e7ORkK7EsjuuW84AYDV0Lx1kSeF2yo9Fg+I1dOFRW2WG5ZlUyBCsleJJFbV8sCYurrdjjwDUzyqGKopFpKcBrF23j8FYggUu7Vzylre9Yh6UV26djp0YQVPLXRB6czs4peMCsePzypsFyG+m2Smc4YYwQFHC0spOEfXIbEJo9opJIDr2AfoEopgqisXp4+1q+3DnOJrDgfoNb8s7xyvp2TCGWkKBu4LEZyST+LqxNNS/dObA4q9CCosP4ctmH9rR6iYEA7fU1e6mLxW0kUnBa/NFoNVImAdhOm6XLtWIJBQa9/B6vM/3kUMPtsN/BHT82O2Fs/kGtbjGVBgWV3rx942P/emivw6XNgrxcz9yvG9N6IAGSKw+rIDS4/vITHezzm91ApR+1hRCYbZjZG/ZkmVUBRAq2I8ZhhgXDfXlvlvsRP7geErshLijycvzysad74ge87b/CY9uB4qJFalbtjUfuVqRJ8FTzvYXUzNCU1aF8OY9LvtWB0QZU6lG5s4nyog7j+i1JuIe1jhzS/iJg3eFcfiLrvKyDtjQYzX1iaJX6cG8t0oXokHmk7uheiYQ== kjeld@schouten-lebbing.nl"
+  storage:
+    grub:
+      reorder_uefi: false
+    swap:
+      size: 0
+    config:
+    - id: root-disk-0
+      type: disk
+      path: /dev/sda
+      wipe: superblock-recursive
+      preserve: false
+      grub_device: false
+      name: ''
+      ptable: gpt
+    - id: root-partition-0
+      type: partition
+      device: root-disk-0
+      size: 512M
+      wipe: superblock
+      flag: boot
+      number: 1
+      preserve: false
+      grub_device: true
+    - id: root-format-0
+      type: format
+      fstype: fat32
+      volume: root-partition-0
+      preserve: false
+    - id: root-partition-1
+      type: partition
+      device: root-disk-0
+      size: -1
+      wipe: superblock
+      flag: ''
+      number: 2
+      preserve: false
+    - id: root-format-1
+      type: format
+      fstype: ext4
+      volume: root-partition-1
+      preserve: false
+    - id: root-mount-0
+      type: mount
+      device: root-format-0
+      path: /boot/efi
+    - id: root-mount-1
+      type: mount
+      device: root-format-1
+      path: /

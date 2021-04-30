@@ -1,0 +1,9 @@
+---
+
+# Use Calico CNI driver
+calico:
+  enabled: true
+  operator_manifest: "https://docs.projectcalico.org/manifests/tigera-operator.yaml"
+  # Enabling BGP requires your router set up to handle it
+  bgp:
+    enabled: false
