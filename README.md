@@ -6,11 +6,8 @@ The purpose here is to showcase how you can deploy an entire Kubernetes cluster 
 
 ## Custom Notes
 
-- use pip ansible instead of apt-get ansible
-- make sure to use `ansible-galaxy install -p server/ansible/roles -r server/ansible/requirements.yml`
-- make sure to use `ansible-galaxy collections install -r server/ansible/requirements.yml`
-- make sure to install pip deps by using `pip3 install /etc/ansible/roles -r server/ansible/requirements.txt`
-- create `vault.yml` using `ansible-vault create` insert `protc1_sudo` etc.
+- run `./setup.sh`
+- run `task ansible:ssh-prep` to ensure ssh pass is only asked once
 
 ## Overview
 

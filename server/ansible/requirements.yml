@@ -4,4 +4,5 @@ roles:
   version: v2.8.3
 collections:
 - name: community.general
+- name: community.sops
 - name: ansible.posix
