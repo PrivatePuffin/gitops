@@ -1,0 +1,20 @@
+- name: flux | Git checkout gitops repo
+  run_once: true
+  ansible.builtin.git:
+    repo: 'https://github.com/Ornias1993/gitops.git'
+    dest: /tmp/gitops
+    version: staging
+
+- name: flux | 1/2 Init flux from gitops repo using kustomize
+  run_once: true
+  ignore_errors: yes
+  ansible.builtin.shell: kubectl apply --kustomize=./cluster/base/flux-system
+  args:
+    chdir: /tmp/gitops
+
+- name: flux | 2/2 Init flux from gitops repo using kustomize
+  run_once: true
+  ignore_errors: yes
+  ansible.builtin.shell: kubectl apply --kustomize=./cluster/base/flux-system
+  args:
+    chdir: /tmp/gitops

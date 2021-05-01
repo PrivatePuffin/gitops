@@ -4,13 +4,6 @@
   tags:
   - kubeconfig
 
-- include: registry.yml
-  when: mirror_registry is defined
-        or (private_registries is defined
-          and private_registries|length > 0)
-  tags:
-  - registry
-
 - include: calico.yml
   when:
   - k3s_control_node is defined
@@ -28,3 +21,12 @@
   - k3s_etcd_datastore
   tags:
   - secrets
+
+- include: flux.yml
+  when:
+  - k3s_control_node is defined
+  - k3s_control_node
+  - k3s_etcd_datastore is defined
+  - k3s_etcd_datastore
+  tags:
+  - flux

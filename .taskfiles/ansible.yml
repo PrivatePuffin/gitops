@@ -11,6 +11,13 @@ vars:
 
 tasks:
 
+  ssh-prep:
+    desc: load ssh key
+    cmds:
+    - 'eval "$(ssh-agent -s)"'
+    - 'ssh-add ~/.ssh/id_rsa'
+    silent: true
+
   ping:
     desc: Ping all the k8s nodes
     cmds:

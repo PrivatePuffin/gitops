@@ -7,4 +7,4 @@ Thumbs.db
 kubeconfig
 # vscode-sops
 .decrypted~*.yaml
-server/ansible/roles
+server/ansible/roles/xanmanning.k3s
