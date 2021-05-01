@@ -57,21 +57,17 @@ spec:
     useAllNodes: false
     useAllDevices: false
     config:
-      metadataDevice:
       osdsPerDevice: "1"
     nodes:
-    - name: "k8s-worker-a"
+    - name: "protc1"
       devices:
-      - name: "nvme0n1"
-    - name: "k8s-worker-b"
+      - name: "sdb"
+      - name: "sdc"
+    - name: "protc2"
       devices:
-      - name: "nvme0n1"
-    - name: "k8s-worker-c"
+      - name: "sdb"
+      - name: "sdc"
+    - name: "protc3"
       devices:
-      - name: "nvme0n1"
-    - name: "k8s-worker-d"
-      devices:
-      - name: "nvme0n1"
-    - name: "k8s-worker-e"
-      devices:
-      - name: "nvme0n1"
+      - name: "sdb"
+      - name: "sdc"
