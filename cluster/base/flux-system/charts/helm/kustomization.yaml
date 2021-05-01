@@ -14,3 +14,4 @@ resources:
 - nextcloud-charts.yaml
 - vernemq-charts.yaml
 - prometheus-community-charts.yaml
+- sonatype-charts.yaml

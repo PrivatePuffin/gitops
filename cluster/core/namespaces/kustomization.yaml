@@ -8,3 +8,4 @@ resources:
 - kubernetes-dashboard.yaml
 - monitoring.yaml
 - storage.yaml
+- registry.yaml
