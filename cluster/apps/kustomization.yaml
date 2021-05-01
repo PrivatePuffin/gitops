@@ -7,4 +7,3 @@ resources:
 - kubernetes-dashboard
 - monitoring
 - storage
-- registry
