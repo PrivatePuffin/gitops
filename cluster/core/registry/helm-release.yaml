@@ -6,11 +6,11 @@ metadata:
 spec:
     interval: 5m
     chart:
-        spec: null
-        # renovate: registryUrl=https://helm.twun.io
-        chart: docker-registry
-        version: 1.10.1
-        sourceRef:
+        spec:
+          # renovate: registryUrl=https://helm.twun.io
+          chart: docker-registry
+          version: 1.10.1
+          sourceRef:
             kind: HelmRepository
             name: twuni-charts
             namespace: flux-system
@@ -26,16 +26,16 @@ spec:
             path: /
             # Used to create an Ingress record.
             hosts:
-                - registry-mirror.${SECRET_DOMAIN}
+              - registry-mirror.${SECRET_DOMAIN}
             tls:
-                - secretName: ""
-                  hosts:
-                    - registry-mirror.${SECRET_DOMAIN}
+              - secretName: ""
+                hosts:
+                  - registry-mirror.${SECRET_DOMAIN}
         persistence:
-            accessMode: ReadWriteOnce
-            enabled: false
-            size: 10Gi
-            # storageClass: '-'
+          accessMode: ReadWriteOnce
+          enabled: false
+          size: 10Gi
+          # storageClass: '-'
         # set the type of filesystem to use: filesystem, s3
         storage: filesystem
         # Secrets for S3 access and secret keys
@@ -43,25 +43,25 @@ spec:
         #     accessKey: ""
         #     secretKey: ""
         configData:
-            version: 0.1
-            log:
-                fields:
-                    service: registry
-            storage:
-                cache:
-                    blobdescriptor: inmemory
-            http:
-                addr: :5000
-                headers:
-                    X-Content-Type-Options:
-                        - nosniff
-            # Encrypt credentials using: sops --encrypt --in-place --encrypted-regex 'password|username' cluster/core/registry/helm-release.yaml
-            proxy:
-                remoteurl: https://registry-1.docker.io
-                username:
-                    - ENC[AES256_GCM,data:5D8vufcEU0k=,iv:K47dJ92QyCXJK9AVmXRHgS6khKx8bm/L2unwWkX464Y=,tag:SFHNaDa6NzqLesONibFrbw==,type:str]
-                password:
-                    - ENC[AES256_GCM,data:SNa8h6ZD5o8=,iv:KlCNlmC2Na7rB2M+FgtZHBrS4AmLwbybHoaje1BjW2A=,tag:7+Q4xSFa9H49fmrtPAXCnw==,type:str]
+          version: 0.1
+          log:
+              fields:
+                  service: registry
+          storage:
+              cache:
+                  blobdescriptor: inmemory
+          http:
+              addr: :5000
+              headers:
+                  X-Content-Type-Options:
+                      - nosniff
+          # Encrypt credentials using: sops --encrypt --in-place --encrypted-regex 'password|username' cluster/core/registry/helm-release.yaml
+          proxy:
+              remoteurl: https://registry-1.docker.io
+              username:
+                  - ENC[AES256_GCM,data:5D8vufcEU0k=,iv:K47dJ92QyCXJK9AVmXRHgS6khKx8bm/L2unwWkX464Y=,tag:SFHNaDa6NzqLesONibFrbw==,type:str]
+              password:
+                  - ENC[AES256_GCM,data:SNa8h6ZD5o8=,iv:KlCNlmC2Na7rB2M+FgtZHBrS4AmLwbybHoaje1BjW2A=,tag:7+Q4xSFa9H49fmrtPAXCnw==,type:str]
 sops:
     kms: []
     gcp_kms: []
