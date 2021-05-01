@@ -17,8 +17,7 @@ spec:
         namespace: flux-system
   values:
     nexus:
-      imagePullSecrets:
-      - "regcred"
+      imagePullSecrets: [regcred]
       docker:
         enabled: true
         registries:
