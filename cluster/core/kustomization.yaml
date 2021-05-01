@@ -8,3 +8,4 @@ resources:
 - metrics-server
 - registry
 - system-upgrade
+- flux-system
