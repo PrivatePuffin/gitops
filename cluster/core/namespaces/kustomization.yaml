@@ -9,4 +9,4 @@ resources:
 - monitoring.yaml
 - storage.yaml
 - registry.yaml
-- rook-ceph
+- rook-ceph.yaml
