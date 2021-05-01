@@ -37,7 +37,7 @@ spec:
         - hosts:
             - nexus.${SECRET_DOMAIN}
     persistence:
-      enabled: true
+      enabled: false
       accessMode: ReadWriteOnce
       ## If defined, storageClass: <storageClass>
       ## If set to "-", storageClass: "", which disables dynamic provisioning
