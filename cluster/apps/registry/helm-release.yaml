@@ -18,7 +18,7 @@ spec:
   values:
     nexus:
       imagePullSecrets:
-        - regcred
+      - "regcred"
       docker:
         enabled: true
         registries:
@@ -55,5 +55,3 @@ spec:
       # If PersistentDisk already exists you can create a PV for it by including the 2 following keypairs.
       # pdName: nexus-data-disk
       # fsType: ext4
-    imagePullSecrets:
-      - regcred
