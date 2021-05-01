@@ -3,8 +3,7 @@ kind: Kustomization
 resources:
 - rbac.yaml
 - helm-release.yaml
-# TODO: Actually setup CEPH storage
-# - storage
+- storage
 - rook-direct-mount
 - service-monitors
 - snapshot-controller
