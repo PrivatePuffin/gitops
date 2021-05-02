@@ -50,7 +50,7 @@ autoinstall:
     config:
     - id: root-disk-0
       type: disk
-      path: /dev/sda
+      path: /dev/vda
       wipe: superblock-recursive
       preserve: false
       grub_device: false
