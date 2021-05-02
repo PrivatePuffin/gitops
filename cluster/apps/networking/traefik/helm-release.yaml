@@ -30,7 +30,7 @@ spec:
     service:
       spec:
         externalTrafficPolicy: Local
-        loadBalancerIP: "${INGRESS_NGINX_LB}"
+        loadBalancerIP: "${INGRESS_TRAEFIK_LB}"
     ports:
       web:
         redirectTo: websecure
