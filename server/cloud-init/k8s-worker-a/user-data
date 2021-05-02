@@ -15,7 +15,7 @@ autoinstall:
     hostname: k8s-worker-a
     # docker run --rm -it alpine:latest mkpasswd -m sha512 ubuntu
     # docker run --rm -it python:alpine3.12 python3 -c 'import crypt; print(crypt.crypt("ubuntu", crypt.mksalt(crypt.METHOD_SHA512)))'
-    password: $6$5DWjYR2a$TWe2vQsCdxIPX2a72asa2tZccbTs2HBHrLiInUXq6u1arTDUvOs5n/Ock9u2K/oyWsltZnFDTv6d5gm4aOPR61
+    password: $6$GPpxhfcHGlTrMbC3$AF.xcrOO/NzG2yO0y.QqJIifjRyDGvBrb0q0wvD6.qIUsnLzpL6RP8FBEAyxEaaOCAHa47c/43rnre0kj6taO0
     realname: Ubuntu
     username: ubuntu
   keyboard:
