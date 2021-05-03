@@ -49,7 +49,7 @@ spec:
               storageClassName: "${SC_DEFAULT}"
               resources:
                 requests:
-                  storage: 10Gi
+                  storage: 100Gi
     grafana:
       ingress:
         enabled: true
@@ -154,7 +154,7 @@ spec:
               accessModes: ['ReadWriteOnce']
               resources:
                 requests:
-                  storage: 20Gi
+                  storage: 200Gi
         resources:
           requests:
             cpu: 500m
