@@ -9,4 +9,3 @@ resources:
 - registry
 - system-upgrade
 - flux-system
-- rook-ceph
