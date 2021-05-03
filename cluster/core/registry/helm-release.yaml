@@ -36,9 +36,9 @@ spec:
           loadBalancerIP: "${LB_REGISTRY_IP}"
         persistence:
           accessMode: ReadWriteOnce
-          enabled: false
-          size: 10Gi
-          # storageClass: '-'
+          enabled: true
+          size: 100Gi
+          storageClass: "${SC_DEFAULT}"
         # set the type of filesystem to use: filesystem, s3
         storage: filesystem
         # Secrets for S3 access and secret keys
