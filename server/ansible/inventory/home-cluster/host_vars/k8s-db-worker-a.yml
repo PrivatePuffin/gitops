@@ -1,11 +1,11 @@
 ---
 
 # IP address of node
-ansible_host: "192.168.10.111"
+ansible_host: "192.168.10.121"
 ansible_ssh_host: "{{ ansible_host }}"
 
 # Ansible user to ssh into servers with
 ansible_user: "ubuntu"
 # ansible_ssh_pass: "ubuntu"
 # ansible_ssh_common_args: "-o UserKnownHostsFile=/dev/null"
-ansible_become_pass: "{{ k8s-master-a_sudo }}"
+ansible_become_pass: "{{ k8s-db-worker-a_sudo }}"

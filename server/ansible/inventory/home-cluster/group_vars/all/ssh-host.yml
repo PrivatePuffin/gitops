@@ -1,1 +1,0 @@
-ansible_ssh_host: "{{ ansible_host }}"
