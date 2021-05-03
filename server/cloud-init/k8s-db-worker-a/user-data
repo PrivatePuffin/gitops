@@ -12,7 +12,7 @@ autoinstall:
     - arches: [default]
       uri: http://ports.ubuntu.com/ubuntu-ports
   identity:
-    hostname: k8s-worker-a
+    hostname: k8s-db-worker-a
     # docker run --rm -it alpine:latest mkpasswd -m sha512 ubuntu
     # docker run --rm -it python:alpine3.12 python3 -c 'import crypt; print(crypt.crypt("ubuntu", crypt.mksalt(crypt.METHOD_SHA512)))'
     password: $6$GPpxhfcHGlTrMbC3$AF.xcrOO/NzG2yO0y.QqJIifjRyDGvBrb0q0wvD6.qIUsnLzpL6RP8FBEAyxEaaOCAHa47c/43rnre0kj6taO0
@@ -28,7 +28,7 @@ autoinstall:
     ethernets:
       ens3:
         addresses:
-        - 192.168.10.111/24
+        - 192.168.10.121/24
         critical: true
         dhcp-identifier: mac
         gateway4: 192.168.10.1

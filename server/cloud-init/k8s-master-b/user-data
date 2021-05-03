@@ -28,7 +28,7 @@ autoinstall:
     ethernets:
       ens3:
         addresses:
-        - 192.168.10.102/24
+        - 192.168.10.112/24
         critical: true
         dhcp-identifier: mac
         gateway4: 192.168.10.1
