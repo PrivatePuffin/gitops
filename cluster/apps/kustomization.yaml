@@ -7,3 +7,5 @@ resources:
 - kubernetes-dashboard
 - monitoring
 - storage
+- flux-system
+- registry
