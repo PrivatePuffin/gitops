@@ -2,10 +2,4 @@
 
 # Configure a registry mirror, useful for having a pull-through cache
 mirror_registry:
-  address: "https://registry-cache.staging.schouten-lebbing.nl"
-
-# Configure private registries
-#private_registries:
-#- address: "https://registry.staging.schouten-lebbing.nl"
-#  username: "admin"
-#  password: "password"
+  address: "http://192.168.10.201:5000"

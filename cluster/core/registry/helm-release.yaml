@@ -31,6 +31,9 @@ spec:
               - secretName: ""
                 hosts:
                   - registry-mirror.${SECRET_DOMAIN}
+        service:
+          type: LoadBalancer
+          loadBalancerIP: 192.168.10.201
         persistence:
           accessMode: ReadWriteOnce
           enabled: false
