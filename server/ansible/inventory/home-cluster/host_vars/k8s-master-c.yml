@@ -7,5 +7,5 @@ ansible_ssh_host: "{{ ansible_host }}"
 # Ansible user to ssh into servers with
 ansible_user: "ubuntu"
 # ansible_ssh_pass: "ubuntu"
-# ansible_ssh_common_args: "-o UserKnownHostsFile=/dev/null"
-ansible_become_pass: "{{ k8s-master-c_sudo }}"
+# ansible_ssh_common_args: "_o UserKnownHostsFile=/dev/null"
+ansible_become_pass: "{{ k8s_master_c_sudo }}"
