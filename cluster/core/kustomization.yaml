@@ -6,6 +6,4 @@ resources:
 - cert-manager
 - storage
 - metrics-server
-- registry
 - system-upgrade
-- flux-system
