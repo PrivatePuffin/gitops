@@ -7,15 +7,14 @@ env:
 vars:
   ANSIBLE_PLAYBOOK_DIR: "{{.ANSIBLE_DIR}}/playbooks"
   ANSIBLE_INVENTORY_DIR: "{{.ANSIBLE_DIR}}/inventory"
-  ANSIBLE_GROUPS: "master-nodes:worker-nodes"
+  ANSIBLE_GROUPS: "master-nodes:db-worker-nodes:worker-nodes"
 
 tasks:
 
   ssh-prep:
     desc: load ssh key
     cmds:
-    - 'eval "$(ssh-agent -s)"'
-    - 'ssh-add ~/.ssh/id_rsa'
+    - 'eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_rsa'
     silent: true
 
   sops-encrypt:
