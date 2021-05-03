@@ -2,6 +2,7 @@
 
 - hosts:
   - master-nodes
+  - db-worker-nodes
   - worker-nodes
   become: true
   gather_facts: true
