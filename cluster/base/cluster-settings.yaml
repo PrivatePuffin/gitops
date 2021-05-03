@@ -5,5 +5,10 @@ metadata:
   name: cluster-settings
   namespace: flux-system
 data:
-  METALLB_LB_RANGE: 192.168.10.200-192.168.10.230
-  INGRESS_TRAEFIK_LB: 192.168.10.200
+
+  # Router Gateway IP
+  GATEWAY_IP: "192.168.10.1"
+  # Available IP range for Load Balancer services
+  METALLB_ARP_RANGE: "192.168.10.200-192.168.10.230"
+  LB_TRAEFIK_IP: "192.168.10.200"
+  LB_REGISTRY_IP: "192.168.10.201"

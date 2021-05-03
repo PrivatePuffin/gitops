@@ -30,7 +30,7 @@ spec:
     service:
       spec:
         externalTrafficPolicy: Local
-        loadBalancerIP: "${INGRESS_TRAEFIK_LB}"
+        loadBalancerIP: "${LB_TRAEFIK_IP}"
     ports:
       web:
         redirectTo: websecure
