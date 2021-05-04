@@ -10,3 +10,4 @@ resources:
 - flux-system
 - registry
 - metrics-server
+- calico-system
