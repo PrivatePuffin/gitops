@@ -9,5 +9,5 @@ resources:
 - storage
 - flux-system
 - registry
-- metrics-server
+- kube-system
 - calico-system
