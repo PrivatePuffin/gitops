@@ -6,7 +6,6 @@ resources:
 - networking
 - kubernetes-dashboard
 - monitoring
-- storage
 - flux-system
 - registry
 - kube-system
