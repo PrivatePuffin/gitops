@@ -12,6 +12,7 @@ data:
   METALLB_ARP_RANGE: "192.168.10.200-192.168.10.230"
   LB_TRAEFIK_IP: "192.168.10.200"
   LB_REGISTRY_IP: "192.168.10.201"
+  LB_LOKI_IP: "192.168.10.202"
 
   # storageClass defaults
   SC_DEFAULT: "local-path"
