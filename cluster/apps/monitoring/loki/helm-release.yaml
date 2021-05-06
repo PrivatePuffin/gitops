@@ -28,6 +28,18 @@ spec:
         size: 25Gi
       serviceMonitor:
         enabled: true
+      ruler:
+        storage:
+          type: local
+          local:
+            directory: /etc/loki/rules
+        ring:
+          kvstore:
+            store: memberlist
+        # A path to render temporary rule files. Changing this breaks things in fun ways
+        rule_path: /tmp/loki/rules-temp
+        enable_api: true
+        enable_alertmanager_v2: true
     promtail:
       serviceMonitor:
         enabled: true
