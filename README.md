@@ -4,6 +4,7 @@ Template for deploying a single [k3s](https://k3s.io/) cluster with [k3sup](http
 
 The purpose here is to showcase how you can deploy an entire Kubernetes cluster and show it off to the world using the [GitOps](https://www.weave.works/blog/what-is-gitops-really) tool [Flux](https://toolkit.fluxcd.io/). When completed, your Git repository will be driving the state of your Kubernetes cluster. In addition with the help of the [Flux SOPS integration](https://toolkit.fluxcd.io/guides/mozilla-sops/) you'll be able to commit GPG encrypted secrets to your public repo.
 
+
 ## Custom Notes
 
 - run `./setup.sh`
@@ -24,7 +25,6 @@ The following components will be installed in your [k3s](https://k3s.io/) cluste
 
 Feel free to read up on any of these technologies before you get started to be more familiar with them.
 
-- [flannel](https://github.com/flannel-io/flannel)
 - [local-path-provisioner](https://github.com/rancher/local-path-provisioner)
 - [flux](https://toolkit.fluxcd.io/)
 - [metallb](https://metallb.universe.tf/)
