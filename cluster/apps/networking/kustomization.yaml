@@ -6,3 +6,4 @@ resources:
 - coredns
 - blocky
 - internal-dns
+- external-dns
