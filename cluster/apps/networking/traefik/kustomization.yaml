@@ -3,9 +3,7 @@ kind: Kustomization
 resources:
 - helm-release.yaml
 - tls-store.yaml
-- ingreessroute.yaml
 - service-monitor.yaml
-- internal-dashboard-service.yaml
 - prom-rules.yaml
 - middlewares
 - dashboard
