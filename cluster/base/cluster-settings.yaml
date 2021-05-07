@@ -17,7 +17,7 @@ data:
   LB_BLOCKY_IP: "192.168.10.204"
 
   # General Config
-  ETCD_MASTERS: "192.168.10.111:2379 192.168.10.112:2379 192.168.10.113:2379"
+  ETCD_MASTERS: "https://192.168.10.111:2379 https://192.168.10.112:2379 https://192.168.10.113:2379"
 
   # storageClass defaults
   SC_DEFAULT: "local-path"
