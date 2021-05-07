@@ -7,3 +7,5 @@ resources:
 - service-monitor.yaml
 - internal-dashboard-service.yaml
 - prom-rules.yaml
+- middlewares
+- dashboard
