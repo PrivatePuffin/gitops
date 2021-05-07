@@ -21,7 +21,7 @@ spec:
     fullnameOverride: coredns
     rbac:
       create: true
-    replicaCount: 3
+    replicaCount: 1
     isClusterService: false
     serviceType: LoadBalancer
     service:

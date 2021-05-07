@@ -22,7 +22,7 @@ spec:
       tag: v0.14
     env:
       TZ: "Europe/Amsterdam"
-    replicas: 3
+    replicas: 1
     service:
       port:
         port: 4000
