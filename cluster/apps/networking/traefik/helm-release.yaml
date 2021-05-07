@@ -59,19 +59,10 @@ spec:
         enabled: false
     pilot:
       enabled: true
+      token: "722c9e7d-0103-42a8-82fd-9bb46868c5c4"
     experimental:
       plugins:
         enabled: true
-    rollingUpdate:
-      maxUnavailable: 3
-      maxSurge: 3
-    resources:
-      requests:
-        cpu: "100m"
-        memory: "50Mi"
-      limits:
-        cpu: "300m"
-        memory: "150Mi"
     tlsOptions:
       default:
         minVersion: VersionTLS12
