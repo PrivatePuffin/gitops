@@ -45,9 +45,9 @@ spec:
     config: |
       upstream:
         externalResolvers:
-        - tcp-tls: dns.quad9.net:853
-        - tcp-tls: cloudflare-dns.com:853
-        - tcp-tls: dns.google:853
+        - tcp-tls:dns.quad9.net:853
+        - tcp-tls:cloudflare-dns.com:853
+        - tcp-tls:dns.google:853
       conditional:
         mapping:
           ${SECRET_DOMAIN}: udp:${LB_COREDNS_IP}
