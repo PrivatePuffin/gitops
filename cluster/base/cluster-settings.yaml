@@ -16,9 +16,6 @@ data:
   LB_COREDNS_IP: "192.168.10.203"
   LB_BLOCKY_IP: "192.168.10.204"
 
-  # General Config
-  ETCD_MASTERS: "https://192.168.10.111:2379 https://192.168.10.112:2379 https://192.168.10.113:2379"
-
   # storageClass defaults
   SC_DEFAULT: "local-path"
   SC_DB: "local-path"

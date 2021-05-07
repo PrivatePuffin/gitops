@@ -56,7 +56,7 @@ spec:
         configBlock: |-
           stubzones
           path /skydns
-          endpoint ${ETCD_MASTERS}
+          endpoint https://192.168.10.111:2379 https://192.168.10.112:2379 https://192.168.10.113:2379
           tls /etc/coredns/coredns-etcd/cert.pem /etc/coredns/coredns-etcd/key.pem /etc/coredns/coredns-etcd/ca.crt
       # Set up cache
       - name: cache
