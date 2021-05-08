@@ -1,0 +1,15 @@
+---
+apiVersion: kadalu-operator.storage/v1alpha1
+kind: KadaluStorage
+metadata:
+  name: testvol
+spec:
+  type: External
+  details:
+    # gluster_hosts: [ gluster1.kadalu.io, gluster2.kadalu.io ]
+    gluster_host: 192.168.10.101
+    gluster_volname: testvol
+    gluster_options: log-level=DEBUG
+    # Omitting 'kadalu_format' or using 'native' as a value will create
+    # 1 PV : 1 Subdir in external gluster volume
+    kadalu_format: native
