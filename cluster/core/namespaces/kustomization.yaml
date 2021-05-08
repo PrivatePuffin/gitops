@@ -10,3 +10,4 @@ resources:
 - storage.yaml
 - registry.yaml
 - falco-system.yaml
+- kadalu-system.yaml

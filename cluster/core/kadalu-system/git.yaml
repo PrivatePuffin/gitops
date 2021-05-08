@@ -1,0 +1,17 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: kadalu-operator
+  namespace: flux-system
+spec:
+  interval: 30m
+  url: https://github.com/kadalu/kadalu.git
+  ref:
+    tag: v0.8.2
+  ignore: |
+    # exclude all
+    /*
+    # include deploy crds dir
+    !/helm/
+    /helm/kadalu/templates/resources.yaml
