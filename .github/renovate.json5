@@ -40,8 +40,7 @@
   "packageRules": [
     // setup datasources
     {
-      "matchDatasources": ["helm"],
-      "separateMinorPatch": true
+      "matchDatasources": ["helm"]
     },
     // global docker datasource settings
     {
@@ -49,8 +48,7 @@
       "enabled": true,
       "commitMessageTopic": "container image {{depName}}",
       "commitMessageExtra": "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}",
-      "matchUpdateTypes": ["major", "minor", "patch"],
-      "separateMinorPatch": true
+      "matchUpdateTypes": ["major", "minor", "patch"]
     },
     // add labels according to package and update types
     {
@@ -140,8 +138,7 @@
       "matchDatasources": ["helm", "docker"],
       "matchPackagePatterns": ["^rook.ceph"],
       "groupName": "rook-ceph-suite",
-      "additionalBranchPrefix": "",
-      "separateMinorPatch": true
+      "additionalBranchPrefix": ""
     },
   ],
 }
