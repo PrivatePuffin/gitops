@@ -7,8 +7,6 @@ metadata:
 spec:
   interval: 30m
   url: https://github.com/Ornias1993/k8s-at-home-Charts.git
-  ref:
-    tag: 0.8.2
   ignore: |
     # exclude all
     /*
