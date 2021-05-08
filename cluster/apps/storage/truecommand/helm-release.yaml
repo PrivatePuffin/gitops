@@ -47,6 +47,6 @@ spec:
     persistence:
       data:
         enabled: true
-      storageClass: "${SC_DB}"
-      accessMode: ReadWriteOnce
-      size: 50Gi
+        storageClass: "${SC_DB}"
+        accessMode: ReadWriteOnce
+        size: 50Gi
