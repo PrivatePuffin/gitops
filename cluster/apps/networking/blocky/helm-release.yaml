@@ -50,7 +50,7 @@ spec:
         - tcp-tls:dns.google:853
       conditional:
         mapping:
-          ${SECRET_DOMAIN}: udp:${LB_COREDNS_IP}
+          ${SECRET_ROOT_DOMAIN}: udp:${LB_COREDNS_IP}
       caching:
         prefetching: true
       blocking:
