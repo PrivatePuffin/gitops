@@ -32,7 +32,7 @@ spec:
         - "homer.${SECRET_DOMAIN}"
     persistence:
       config:
-      enabled: enabled
-      storageClass: "kadalu.external.testvol"
-      accessMode: ReadWriteOnce
-      size: 50Gi
+        enabled: enabled
+        storageClass: "kadalu.external.testvol"
+        accessMode: ReadWriteOnce
+        size: 50Gi
