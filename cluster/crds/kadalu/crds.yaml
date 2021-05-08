@@ -14,19 +14,95 @@ spec:
     /*
     # include deploy crds dir
     !/helm/kadalu/templates/resources.yaml
+##
+## Should start using this correctly when kadalu people have learned how to use Helm. (might take a while)
+##
+#---
+#apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+#kind: Kustomization
+#metadata:
+#  name: kadalu-crds
+#  namespace: flux-system
+#spec:
+#  interval: 15m
+#  prune: false
+#  sourceRef:
+#    kind: GitRepository
+#    name: kadalu-crds
+#  healthChecks:
+#  - apiVersion: apiextensions.k8s.io/v1
+#    kind: CustomResourceDefinition
+#    name: kadalustorages.kadalu-operator.storage
 ---
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
-kind: Kustomization
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
 metadata:
-  name: kadalu-crds
-  namespace: flux-system
+  name: kadalustorages.kadalu-operator.storage
 spec:
-  interval: 15m
-  prune: false
-  sourceRef:
-    kind: GitRepository
-    name: kadalu-crds
-  healthChecks:
-  - apiVersion: apiextensions.k8s.io/v1
-    kind: CustomResourceDefinition
-    name: kadalustorages.kadalu-operator.storage
+  group: kadalu-operator.storage
+  names:
+    kind: KadaluStorage
+    listKind: KadaluStorageList
+    plural: kadalustorages
+    singular: kadalustorage
+  scope: Namespaced
+  versions:
+    - name: v1alpha1
+      storage: true
+      served: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                disperse:
+                  type: object
+                  properties:
+                    data:
+                      type: integer
+                    redundancy:
+                      type: integer
+                type:
+                  type: string
+                storage:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      node:
+                        type: string
+                      device:
+                        type: string
+                      path:
+                        type: string
+                      pvc:
+                        type: string
+                tiebreaker:
+                  type: object
+                  properties:
+                    deployment:
+                      type: string
+                    node:
+                      type: string
+                    path:
+                      type: string
+                    port:
+                      type: integer
+                details:
+                  type: object
+                  properties:
+                    gluster_host:
+                      type: string
+                    gluster_hosts:
+                      type: array
+                      items:
+                        type: string
+                    gluster_volname:
+                      type: string
+                    gluster_options:
+                      type: string
+                    kadalu_format:
+                      type: string
+                      default: native
