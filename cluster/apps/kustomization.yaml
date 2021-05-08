@@ -11,3 +11,4 @@ resources:
 - registry
 - kube-system
 - calico-system
+- storage
